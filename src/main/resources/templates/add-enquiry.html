@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Student Registration</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+              rel="stylesheet"
+              integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+              crossorigin="anonymous">
+    </head>
+    <body>
+    <div class="container">
+        <nav class="nav">
+            <a class="nav-link active" aria-current="page" href="/dashboardFromNavBar">Dashboard</a>
+            <a class="nav-link active" aria-current="page" href="/add-enquiry">Add Enquiry</a>
+            <a class="nav-link" href="/allEnquiries">View Enquiries</a>
+            <a class="nav-link" href="/logout">Logout</a>
+        </nav>
+        <h1>Add Enquiry Here</h1>
+        <font style="color: green;">
+            <p th:text="${successMsg}"></p>
+        </font>
+        <form th:action="@{/createEnquiry}" th:object="${enquiry}" method="post">
+
+<!--            <input type="text" id="enquiryId" th:field="*{enquiryId}"/>-->
+            <!-- Student Name Field -->
+            <div>
+                <label for="studentName">Student Name:</label>
+                <input type="text" id="studentName" th:field="*{studentName}" required/>
+            </div>
+            <br>
+
+            <!-- Phone Number Field -->
+            <div>
+                <label for="phoneNumber">Phone Number:</label>
+                <input type="text" id="phoneNumber" th:field="*{phoneNumber}" required/>
+            </div>
+            <br>
+
+            <!-- Class Mode Dropdown -->
+            <div>
+                <label for="classMode">Class Mode:</label>
+                <select id="classMode" th:field="*{classMode}" required>
+                    <option value="ONLINE">Online</option>
+                    <option value="OFFLINE">Offline</option>
+                </select>
+            </div>
+            <br>
+
+            <!-- Course Number Dropdown -->
+            <div>
+                <label for="courseName">Course Name:</label>
+                <select id="courseName" th:field="*{courseName}" required>
+                    <option value="JRTP">JRTP</option>
+                    <option value="SBMS">SBMS</option>
+                    <option value="DEVOPS">DEVOPS</option>
+                </select>
+            </div>
+            <br>
+
+            <!-- Status Dropdown -->
+            <div>
+                <label for="status">Status:</label>
+                <select id="status" th:field="*{status}" required>
+                    <option value="OPEN">OPEN</option>
+                    <option value="ENROLLED">ENROLLED</option>
+                    <option value="LOST">LOST</option>
+                </select>
+            </div>
+            <br>
+
+            <!-- Submit Button -->
+            <div>
+                <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+
+        </form>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    </body>
+</html>
