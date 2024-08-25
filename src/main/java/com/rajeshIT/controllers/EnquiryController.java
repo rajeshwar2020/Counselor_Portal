@@ -38,11 +38,6 @@ public class EnquiryController {
         if (session == null) {
             return Helper.returnToLoginPage(model);
         }
-        //for UPDATE - adding enquiryId to enquiry object (because from UI enquiryID is coming as null)
-        Integer enquiryId = (Integer) session.getAttribute("enquiryId");
-        if (enquiryId != null) {
-            enquiry.setEnquiryId(enquiryId);
-        }
 
         Integer counselorId = (Integer) session.getAttribute("counselorId");
         boolean isAdded = enquiryService.addEnquiry(enquiry, counselorId);
@@ -51,8 +46,6 @@ public class EnquiryController {
             return "add-enquiry";
         }
         return "add-enquiry";
-
-
     }
 
     @GetMapping("/allEnquiries")
