@@ -25,7 +25,7 @@
         </font>
         <form th:action="@{/createEnquiry}" th:object="${enquiry}" method="post">
 
-<!--            <input type="text" id="enquiryId" th:field="*{enquiryId}"/>-->
+            <input type="hidden" id="enquiryId" th:field="*{enquiryId}"/>
             <!-- Student Name Field -->
             <div>
                 <label for="studentName">Student Name:</label>
